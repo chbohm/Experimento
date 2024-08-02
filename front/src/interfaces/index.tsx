@@ -66,3 +66,29 @@ export interface IProductProps{
     product:IProduct
 }
 
+export interface ILoginProps{
+    email:string;
+    password:string;
+}
+export interface ILoginError{
+    email?:string;
+    password?:string;
+}
+
+export interface ISignUpProps{
+    email:string;
+    password:string;
+    first_name:string;
+    last_name:string;
+    phone:string;
+    address:string;
+}
+
+export interface ISignUpError{
+    email?:string;
+    password?:string;
+    first_name?:string;
+    last_name?:string;
+    phone?:string;
+    address?:string;
+}

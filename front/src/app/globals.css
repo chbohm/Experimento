@@ -1,6 +1,11 @@
 
 body {
-  color:rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
   background-color: #0b0b0b;
   
+}
+.product-image {
+  width: 16px; /* Ajusta el tamaño según lo necesites */
+  height: 16px;
+  object-fit: cover; /* Asegura que la imagen mantenga sus proporciones */
 }
