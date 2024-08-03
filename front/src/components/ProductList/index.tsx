@@ -1,13 +1,22 @@
-import { IProduct, IProductListProps } from "@/interfaces";
+import { IProduct } from "@/interfaces";
 import ProductCard from "../ProductCard";
+import { getProductsDB } from "@/helpers/productshelper";
+import Link from "next/link";
 
-function ProductList({products}:IProductListProps){
-return(
-    <div className="text-white">
-        {products.map((product:IProduct)=>(
-            <ProductCard product={product} key={product.id} />
-        ))}
+const ProductList = async () => {
+  const products = await getProductsDB();
+
+  return (
+    <div className="flex flex-row flex-wrap">
+      {products && products.map((product) => (
+        <Link key={product.id} href={`/detail/${product.id}`} passHref>
+          <a>
+            <ProductCard product={product} />
+          </a>
+        </Link>
+      ))}
     </div>
-)
-}
+  );
+};
+
 export default ProductList;
