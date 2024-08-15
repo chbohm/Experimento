@@ -6,7 +6,7 @@ import { productsToPreLoad } from "../../../public/data";
 function Home() {
     return (
         <div>
-            <ProductList products={productsToPreLoad} />
+            <ProductList  />
             
         </div>
     );

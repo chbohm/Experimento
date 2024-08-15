@@ -4,19 +4,21 @@ import { getProductsDB } from "@/helpers/productshelper";
 import Link from "next/link";
 
 const ProductList = async () => {
-  const products = await getProductsDB();
+
+  const products= await getProductsDB();
 
   return (
     <div className="flex flex-row flex-wrap">
-      {products && products.map((product) => (
-        <Link key={product.id} href={`/detail/${product.id}`} passHref>
-          <a>
-            <ProductCard product={product} />
-          </a>
-        </Link>
-      ))}
+      {products &&
+        products.map((product: IProduct) => (
+          <Link href={`/product/${product.id}`} key={product.id}>
+            <ProductCard product={product} {...product} />
+          </Link>
+          //hace que al hacer click, el evento se dispare y traiga los detalles del producto
+        ))}
     </div>
   );
 };
 
 export default ProductList;
+

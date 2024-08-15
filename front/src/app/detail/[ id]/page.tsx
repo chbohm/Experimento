@@ -1,23 +1,20 @@
 import React from 'react';
 import ProductDetail from "@/components/ProductDetail";
 import { getProductsById } from "@/helpers/productshelper";
-import { IProductProps } from "@/interfaces";
 
-const Detail: React.FC<IProductProps> = async ({ params }) => {
-    const { id } = params;
-    const product = await getProductsById(id);
+interface DetailProductProps {
+    params: {
+        id:string;
+    }; 
+}
+
+const DetailProduct: React.FC<DetailProductProps> = async ({ params }) => {
+    const {id} = params;
+    const product = await getProductsById(id.toString()); // Convertir a string
 
     return (
-        <ProductDetail 
-            name={product.name} 
-            image={product.image} 
-            description={product.description} 
-            price={product.price} 
-            stock={product.stock} 
-            id={product.id} 
-            categoryId={product.categoryId} 
-        />
-    );
+    <ProductDetail {...product} />
+    )
 };
 
-export default Detail;
+export default DetailProduct;

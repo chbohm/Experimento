@@ -1,9 +1,12 @@
 "use client";
+import { Register } from "@/helpers/auth.helpers";
 import { validateSignUpForm } from "@/helpers/validate";
 import { ISignUpError, ISignUpProps } from "@/interfaces";
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
 const SignUp = () => {
+    const router = useRouter();
     const initialState = {
         email: "",
         password: "",
@@ -24,12 +27,20 @@ const SignUp = () => {
 
     const handleOnSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const validationErrors =validateSignUpForm(formDta);
+
+        const validationErrors = validateSignUpForm(formDta);
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length === 0) {
             alert("Formulario enviado");
-            // Aquí puedes agregar la lógica para enviar el formulario
+            try {
+                await Register(formDta);
+                alert("Registro exitoso");
+                router.push('/login');
+            } catch (error) {
+                console.error("Error al registrar:", error);
+                alert("Error al registrar, por favor inténtalo nuevamente.");
+            }
         }
     };
 
@@ -110,9 +121,7 @@ const SignUp = () => {
                     {errors.address && <p className="text-red-600">{errors.address}</p>}
                 </div>
                 <div className="flex items-center justify-center">
-                    <button  type="submit"
-                     
-                    >
+                    <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none">
                         Sign Up
                     </button>
                 </div>

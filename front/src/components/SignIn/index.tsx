@@ -1,6 +1,7 @@
 "use client"
 import { validateLoginForm } from '@/helpers/validate';
 import { ILoginError, ILoginProps } from '@/interfaces';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import { useState, useEffect } from "react";
@@ -8,6 +9,7 @@ import { useState, useEffect } from "react";
 
 
 const Login = () => {
+    const router=useRouter();
    
     const initialState={
         email: "",
@@ -25,8 +27,23 @@ const Login = () => {
 
     const handleOnSubmit = async ( event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        alert ("formulario enviado")
-        
+       
+        const response= await Login(formDta)
+        console.log(response)
+        const {token,user}=response;
+       const clearUser={
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          address: user.address,
+          phone: user.phone,
+          password: user.password,
+          token: token
+       }
+        localStorage.setItem("user", JSON.stringify(token,formDta:clearUser));//guarda el usuario en el localStorage
+        alert ("Formulario enviado")
+        router.push('/')
+        //una vez que el usuario se registre redirecciona a la ruta principal
     };
      
     useEffect(()=>{
