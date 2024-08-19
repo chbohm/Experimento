@@ -1,5 +1,5 @@
 "use client";
-import { Register } from "@/helpers/auth.helpers";
+import { register } from "@/helpers/auth.helpers";
 import { validateSignUpForm } from "@/helpers/validate";
 import { ISignUpError, ISignUpProps } from "@/interfaces";
 import { useRouter } from "next/navigation";
@@ -34,7 +34,7 @@ const SignUp = () => {
         if (Object.keys(validationErrors).length === 0) {
             alert("Formulario enviado");
             try {
-                await Register(formDta);
+                await register(formDta);
                 alert("Registro exitoso");
                 router.push('/login');
             } catch (error) {

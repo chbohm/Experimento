@@ -93,3 +93,17 @@ export interface ISignUpError{
     phone?:string;
     address?:string;
 }
+
+
+export interface userSession{
+    token:string;
+    userData:{
+        id:number;
+        name:string;
+        email:string;
+        address:string;
+        phone:string;
+        orders:[]
+    }
+
+}

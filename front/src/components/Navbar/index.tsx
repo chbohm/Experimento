@@ -5,10 +5,18 @@ import Link from "next/link";
 import styles from './navbar.module.css';
 import { useEffect, useState } from "react";
 import { productsToPreLoad } from "../../../public/data"; // Asegúrate de importar productsToPreLoad
+import { userSession } from "@/interfaces";
 
 const Navbar = () => {
+    const [userSession, setUserSession] = useState<userSession>();
     const [open, setOpen] = useState(true);
     const [windowSize, setWindowSize] = useState([1200, 800]);
+ 
+    
+    useEffect(() => {
+       const userSessionLocal= localStorage.getItem("userSession")
+       setUserSession(JSON.parse(userSessionLocal!)) //el parse lo convierte en un objeto nuevamente
+    }, []);
 
     const windowsizeHandler = () => {
         setWindowSize([window.innerWidth, window.innerHeight]);
@@ -32,7 +40,23 @@ const Navbar = () => {
                 />
                 <Image src="/imagenes/logo.png" alt="logo" width={200} height={100} />
                 <div className={styles.navbarItems}>
+                    <div>
+                        {
+                            !userSession?.token? (
+
+                                <Link href="/login" >Sign In</Link>
+
+                            ):(
+
+                                <Link href="/user-dashboard" >
+                                    <p>Profile:{userSession?.userData?.name}</p>
+                                </Link>
+
+                            )
+                        }
+
                     <Link href="/login" className={styles.navbar_item}>Sign In</Link>
+                    </div>
                     <div className="block md:hidden" onClick={() => setOpen(!open)}>
                         <div className="w-4 h-0.5 bg-black"></div>
                     </div>

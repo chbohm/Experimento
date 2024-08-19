@@ -22,10 +22,12 @@ export async function getProductsById(id: string): Promise<IProduct> {
     try {
         const products: IProduct[] = await getProductsDB();
         const productFiltered = products.find(product => product.id === Number(id));
-        if (!productFiltered) throw new Error("Product not found");
+        if (!productFiltered) {
+            throw new Error("Product not found")
+        }
         return productFiltered;
     } catch (error: any) {
-        throw new Error(error.message || 'Ocurrió un error al obtener el producto');
+        throw new Error(error);
     }
 };
 

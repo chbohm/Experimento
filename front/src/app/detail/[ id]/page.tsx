@@ -10,7 +10,7 @@ interface DetailProductProps {
 
 const DetailProduct: React.FC<DetailProductProps> = async ({ params }) => {
     const {id} = params;
-    const product = await getProductsById(id.toString()); // Convertir a string
+    const product = await getProductsById(id); // Convertir a string
 
     return (
     <ProductDetail {...product} />

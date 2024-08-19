@@ -1,4 +1,5 @@
 "use client"
+import { login } from '@/helpers/auth.helpers';
 import { validateLoginForm } from '@/helpers/validate';
 import { ILoginError, ILoginProps } from '@/interfaces';
 import { useRouter } from 'next/router';
@@ -28,7 +29,7 @@ const Login = () => {
     const handleOnSubmit = async ( event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
        
-        const response= await Login(formDta)
+        const response= await login(formDta)
         console.log(response)
         const {token,user}=response;
        const clearUser={
@@ -40,7 +41,7 @@ const Login = () => {
           password: user.password,
           token: token
        }
-        localStorage.setItem("user", JSON.stringify(token,formDta:clearUser));//guarda el usuario en el localStorage
+        localStorage.setItem("user", JSON.stringify({token,user:clearUser}));//guarda el usuario en el localStorage
         alert ("Formulario enviado")
         router.push('/')
         //una vez que el usuario se registre redirecciona a la ruta principal

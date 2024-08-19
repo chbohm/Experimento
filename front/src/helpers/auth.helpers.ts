@@ -2,7 +2,7 @@ import { ILoginError, ILoginProps, ISignUpProps } from "@/interfaces";
 
 const APIURL = process.env.NEXT_PUBLIC_API_URL;
 
-export async function Register (userData: ISignUpProps) {
+export async function register (userData: ISignUpProps) {
     try {
         const res = await fetch(`${APIURL}/users/register`, {
             method: 'POST',
@@ -23,7 +23,7 @@ export async function Register (userData: ISignUpProps) {
 }
 
 
-export async function Login (userData: ILoginProps) {
+export async function login (userData: ILoginProps) {
     try {
         const res = await fetch(`${APIURL}/users/login`, {
             method: 'POST',
