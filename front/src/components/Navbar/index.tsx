@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from './navbar.module.css';
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { productsToPreLoad } from "../../../public/data"; // Asegúrate de importar productsToPreLoad
 import { userSession } from "@/interfaces";
 
@@ -11,8 +11,7 @@ const Navbar = () => {
     const [userSession, setUserSession] = useState<userSession>();
     const [open, setOpen] = useState(true);
     const [windowSize, setWindowSize] = useState([1200, 800]);
- 
-    
+                                                                                                                        
     useEffect(() => {
        const userSessionLocal= localStorage.getItem("userSession")
        setUserSession(JSON.parse(userSessionLocal!)) //el parse lo convierte en un objeto nuevamente
@@ -77,6 +76,8 @@ const Navbar = () => {
                     <Link href="/home" className={styles.navbar_item}>Home</Link>
                     <Link href="/checkout" className={styles.navbar_item}>Checkout</Link>
                     <Link href="/user-dashboard" className={styles.navbar_item}>User Dashboard</Link>
+                    <Link href="/orders" className={styles.navbar_item}>Orders</Link>
+                    
                 </div>
             </div>
         </div>

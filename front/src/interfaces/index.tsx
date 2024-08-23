@@ -107,3 +107,10 @@ export interface userSession{
     }
 
 }
+
+export interface IOrder{
+    id:number;
+    date:string;
+    status:string;
+    products:IProduct[]
+}

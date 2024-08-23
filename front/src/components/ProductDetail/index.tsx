@@ -5,6 +5,7 @@ import { IProduct, userSession } from "@/interfaces";
 import { useRouter } from 'next/navigation';
 
 const ProductDetail: React.FC<IProduct> = ({id, name, image, description, price, stock, categoryId }) => {
+    
  const router=useRouter();
     const [userSession, setUserSession] = useState<userSession>();
 

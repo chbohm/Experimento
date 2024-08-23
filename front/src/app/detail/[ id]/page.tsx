@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductDetail from "@/components/ProductDetail";
 import { getProductsById } from "@/helpers/productshelper";
+import Cart from '@/app/cartt/page';
 
 interface DetailProductProps {
     params: {
@@ -14,6 +15,7 @@ const DetailProduct: React.FC<DetailProductProps> = async ({ params }) => {
 
     return (
     <ProductDetail {...product} />
+    
     )
 };
 

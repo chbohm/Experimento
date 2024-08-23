@@ -36,7 +36,7 @@ const SignUp = () => {
             try {
                 await register(formDta);
                 alert("Registro exitoso");
-                router.push('/login');
+                router.push('/home');
             } catch (error) {
                 console.error("Error al registrar:", error);
                 alert("Error al registrar, por favor inténtalo nuevamente.");

@@ -1,5 +1,6 @@
 "use client";
 
+import { createOrder } from "@/helpers/orders.helpers";
 import { IProduct, userSession } from "@/interfaces";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -39,14 +40,26 @@ useEffect(() => {
     !userSession?.token && router.push('/login')
 }, [userSession?.userData])
 
+
+
+const handleClick=async ()=>{
+    const idProducts=cart?.map((product)=>product.id);
+    await createOrder(idProducts, userSession?.token!)
+    alert("orden creada")
+    setCart([])
+    setTotalCart(0)
+    localStorage.removeItem("cart")
+
+}
+
 return(
-    <div>
+    <div className="w-full items-center justify-around flex flex-row">
     {cart && cart.length > 0 ? (
         cart?.map((item: IProduct) => {
             return(
             <div key={item.id}>
                 <h1>{item.name}</h1>
-                <h2>{item.price}</h2>
+                <h2> Price: {item.price}</h2>
             </div>
             )
         })
@@ -54,8 +67,14 @@ return(
         <div>
             <h1>Carrito vacío</h1>
         </div>
-    )}
+    )
+    }
+<div>
+    <h1>Total: ${totalCart}</h1>
+    <button onClick={handleClick}>Checkout</button>
 </div>
+</div>
+
 )
 
 }
