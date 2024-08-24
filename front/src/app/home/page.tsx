@@ -1,18 +1,23 @@
 import ProductList from "@/components/ProductList";
 import { productsToPreLoad } from "../../../public/data";
+import ProductCard from "@/components/ProductCard";
+import { getProductsDB } from "@/helpers/productshelper";
 
 
 
 async function Home() {
+    const products= await getProductsDB();
     return (
         <div>
-            <ProductList products={productsToPreLoad} />
+            <ProductList products={products} />
             
         </div>
     );
 }
 
 export default Home
+
+
 
 // import ProductList from "@/components/ProductList";
 // import { IProduct } from "@/interfaces";

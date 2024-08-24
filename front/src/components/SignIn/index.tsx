@@ -2,7 +2,7 @@
 import { login } from '@/helpers/auth.helpers';
 import { validateLoginForm } from '@/helpers/validate';
 import { ILoginError, ILoginProps } from '@/interfaces';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 import { useState, useEffect } from "react";

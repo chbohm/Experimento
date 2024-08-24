@@ -1,10 +1,19 @@
+"use client";
+import { useRouter } from "next/navigation";
 
 
 export default function LandingPage() {
+const router=useRouter()
+
+const handleClick=()=>{
+  
+
+  router.push('/auth-page')
+}
   return (
     <div>
       <h1>Bienvenido a TecnoHouse</h1>
-      <button>Ingresar</button>
+      <button onClick={handleClick}>Ingresar</button>
 
 
 

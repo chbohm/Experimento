@@ -32,12 +32,12 @@ const Navbar = () => {
     return (
         <div className={styles.navbarContainer}>
             <div className={styles.navbar}>
+                <Image src="/imagenes/logo.png" alt="logo" width={200} height={100} />
                 <input
                     type="text"
                     placeholder="Search..."
                     className="w-full max-w-[200px] rounded-lg bg-white shadow-secondary"
                 />
-                <Image src="/imagenes/logo.png" alt="logo" width={200} height={100} />
                 <div className={styles.navbarItems}>
                     <div>
                         {

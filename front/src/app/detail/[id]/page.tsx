@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductDetail from "@/components/ProductDetail";
 import { getProductsById } from "@/helpers/productshelper";
-import Cart from '@/app/cartt/page';
+import Cart from '@/app/cart/page';
 
 interface DetailProductProps {
     params: {
@@ -14,7 +14,11 @@ const DetailProduct: React.FC<DetailProductProps> = async ({ params }) => {
     const product = await getProductsById(id); // Convertir a string
 
     return (
-    <ProductDetail {...product} />
+        <div>
+            <h1>Detail</h1>
+
+            <ProductDetail {...product} />
+        </div>
     
     )
 };
