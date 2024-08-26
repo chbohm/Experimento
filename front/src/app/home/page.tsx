@@ -1,7 +1,9 @@
-import ProductList from "@/components/ProductList";
-import { productsToPreLoad } from "../../../public/data";
+
 import ProductCard from "@/components/ProductCard";
+import ProductList from "@/components/ProductList";
 import { getProductsDB } from "@/helpers/productshelper";
+import { IProduct } from "@/interfaces";
+import { useEffect, useState } from "react";
 
 
 
@@ -17,20 +19,3 @@ async function Home() {
 
 export default Home
 
-
-
-// import ProductList from "@/components/ProductList";
-// import { IProduct } from "@/interfaces";
-
-
-
-// const HomePage = () => {
-//   return (
-//     <div>
-//       <h1>Bienvenido a la tienda</h1>
-//       <ProductList products={products} />
-//     </div>
-//   );
-// };
-
-// export default HomePage;

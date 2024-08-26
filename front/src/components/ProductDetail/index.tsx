@@ -113,7 +113,7 @@ const ProductDetail: React.FC<IProduct> = ({ id, name, image, description, price
         <div className="flex flex-col items-center p-4 md:p-6 bg-gray-100 rounded-lg shadow-md max-w-full md:max-w-lg mx-auto">
             <h1 className="text-2xl md:text-3xl font-semibold mb-4">{name}</h1>
             <img
-                className="w-full h-auto md:h-64 object-cover rounded-lg mb-4"
+                className="w-min h-auto md:h-64 object-cover rounded-lg mb-4"
                 src={image}
                 alt={`Product image of ${name}`}
             />

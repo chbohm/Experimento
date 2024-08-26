@@ -10,9 +10,9 @@ const ProductList: React.FC<IProductListProps> = ({ products }) => {
     <div className="flex flex-row flex-wrap">
       {products &&
       products?.map((product) => (
-        <Link href={`/product/${product.id}`} key={product.id}>
+        // <Link href={`/product/${product.id}`} key={product.id}>
           <ProductCard product={product} {...product} />
-        </Link>
+        // </Link>
       ))}
     </div>
   );
