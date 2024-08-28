@@ -1,3 +1,4 @@
+
 import CartPage from "@/components/CartPage/CartPage"
 
 const Cart=()=>{

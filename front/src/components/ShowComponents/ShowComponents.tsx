@@ -6,7 +6,7 @@ const ShowComponents = ({ children }: { children: React.ReactNode}) => {
     return (
         <div>
             {
-                pathname !== "/SignIn" && (
+                pathname !== "/login" && (
                     children
                 )
 

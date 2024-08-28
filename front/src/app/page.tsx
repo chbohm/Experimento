@@ -12,8 +12,8 @@ const handleClick=()=>{
 }
   return (
     <div>
-      <h1>Bienvenido a TecnoHouse</h1>
-      <button onClick={handleClick}>Ingresar</button>
+      <h1>Welcome to TecnoHouse</h1>
+      <button onClick={handleClick}>Login</button>
 
 
 

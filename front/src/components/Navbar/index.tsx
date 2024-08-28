@@ -7,6 +7,8 @@ import { useContext, useEffect, useState } from "react";
 import { productsToPreLoad } from "../../../public/data"; // Asegúrate de importar productsToPreLoad
 import { userSession } from "@/interfaces";
 
+
+
 const Navbar = () => {
     const [userSession, setUserSession] = useState<userSession>();
     const [open, setOpen] = useState(true);
@@ -43,7 +45,7 @@ const Navbar = () => {
                         {
                             !userSession?.token? (
 
-                                <Link href="/login" >Sign In</Link>
+                                <Link className={styles.navbar_item} href="/login" >SignIn</Link>
 
                             ):(
 
@@ -54,24 +56,25 @@ const Navbar = () => {
                             )
                         }
 
-                    <Link href="/login" className={styles.navbar_item}>Sign In</Link>
+                    
                     </div>
                     <div className="block md:hidden" onClick={() => setOpen(!open)}>
                         <div className="w-4 h-0.5 bg-black"></div>
                     </div>
 
-                    {open && (
+                    {/* {open && (
                         windowSize[0] >= 720 && (
-                        <div className="w-full p-2 flex flex-row items-center gap-[10px]">
-                            {productsToPreLoad.map((product) => (
-                                <Link href={`/product/${product.id}`} key={product.id}>
-                                    <label className="text-xs font-medium">{product.name}</label>
+                        <div className="w-full flex flex-row p-2 items-center gap-[10px] justify-around ">
+                            {categoriesToPreLoad.map((category) => (
+                                <Link key={category.id} href={`/products/${category.id}`} className={styles.navbar_item}>
+                                <label className={styles.navbar_item}>{category.name}</label>
                                 </Link>
+
                             ))}
                         </div>
                     )
                     
-                    )}
+                    )} */}
 
                     <Link href="/home" className={styles.navbar_item}>Home</Link>
                     <Link href="/checkout" className={styles.navbar_item}>Checkout</Link>

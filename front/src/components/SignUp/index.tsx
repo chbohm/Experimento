@@ -32,14 +32,14 @@ const SignUp = () => {
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length === 0) {
-            alert("Formulario enviado");
+            alert("submitted form");
             try {
                 await register(formDta);
-                alert("Registro exitoso");
-                router.push('/home');
+                alert("succesfully registered");
+                router.push('/SignIn');
             } catch (error) {
-                console.error("Error al registrar:", error);
-                alert("Error al registrar, por favor inténtalo nuevamente.");
+                console.error("Error registering user:", error);
+                alert("Error registering user, please try again");
             }
         }
     };

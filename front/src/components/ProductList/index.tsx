@@ -6,6 +6,7 @@ import ProductCard from "../ProductCard";
 import Link from "next/link";
 
 const ProductList: React.FC<IProductListProps> = ({ products }) => {
+  
   return (
     <div className="flex flex-row flex-wrap">
       {products &&
@@ -19,6 +20,7 @@ const ProductList: React.FC<IProductListProps> = ({ products }) => {
 };
 
 export default ProductList;
+// 
 
 
 // import { IProduct } from "@/interfaces";

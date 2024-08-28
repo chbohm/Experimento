@@ -41,9 +41,9 @@ const Login = () => {
           password: user.password,
           token: token
        }
-        localStorage.setItem("user", JSON.stringify({token,user:clearUser}));//guarda el usuario en el localStorage
-        alert ("Formulario enviado")
-        router.push('/')
+        localStorage.setItem("userSession", JSON.stringify({token,user:clearUser}));//guarda el usuario en el localStorage
+        alert ("submitted form")
+        router.push('/home')
         //una vez que el usuario se registre redirecciona a la ruta principal
     };
      
@@ -58,6 +58,7 @@ const Login = () => {
             <form onSubmit={handleOnSubmit} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
                 <div className="relative w-full mb-5">
                     <input
+                        id="email"
                         type="email"
                         name="email"
                         value={formDta.email}
@@ -69,6 +70,7 @@ const Login = () => {
                 </div>
                 <div className="relative w-full mb-5">
                     <input
+                    id="password"
                         type="password"
                         name="password"
                         value={formDta.password}
@@ -86,7 +88,7 @@ const Login = () => {
                         }`}
                         disabled={!!errors.email || !!errors.password}
                     >
-                        Iniciar Sesión
+                        Login
                     </button>
                 </div>
             </form>

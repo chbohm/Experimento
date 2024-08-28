@@ -2,35 +2,51 @@ import { ILoginError, ILoginProps,ISignUpProps,ISignUpError } from "@/interfaces
 
 export function validateLoginForm(values:ILoginProps):ILoginError{
 const errors:ILoginError = {}
-if(errors.email && ! /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(values.email)){
-    errors.email="email invalido"
-}
-if(errors.password && !values.password){
-    errors.password="contraseña requerida"
-}
-return errors
+if (!values.email) {
+    errors.email = "Email is required";
+} else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(values.email)) {
+    errors.email = "Invalid email format";
 }
 
-export function validateSignUpForm(values:ISignUpProps):ISignUpError{
-    const errors:ISignUpError = {}
-    if(errors.email && ! /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(values.email)){
-        errors.email="email invalido"
-    }
-    if(errors.password && !values.password){
-        errors.password="contraseña requerida"
-    }
-    if(errors.first_name && !values.first_name){
-        errors.first_name="nombre requerido"
-    }
-    if(errors.last_name && !values.last_name){
-        errors.last_name="apellidos requeridos"
-    }
-    if(errors.phone && !values.phone){
-        errors.phone="telefono requerido"
-    }
-    if(errors.address && !values.address){
-        errors.address="direccion requerida"
+if (!values.password) {
+    errors.password = "Password is required";
+}
+
+return errors;
+}
+
+export function validateSignUpForm(values: ISignUpProps): ISignUpError {
+    const errors: ISignUpError = {};
+
+    if (!values.email) {
+        errors.email = "Email is required";
+    } else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(values.email)) {
+        errors.email = "Invalid email format";
     }
 
-    return errors
+    if (!values.password) {
+        errors.password = "Password is required";
+    } else if (values.password.length < 6) {
+        errors.password = "Password must be at least 6 characters long";
+    }
+
+    if (!values.first_name) {
+        errors.first_name = "First name is required";
+    }
+
+    if (!values.last_name) {
+        errors.last_name = "Last name is required";
+    }
+
+    if (!values.phone) {
+        errors.phone = "Phone number is required";
+    } else if (!/^\d{11}$/.test(values.phone)) {
+        errors.phone = "Phone number must be 11 digits long";
+    }
+
+    if (!values.address) {
+        errors.address = "Address is required";
+    }
+
+    return errors;
 }
