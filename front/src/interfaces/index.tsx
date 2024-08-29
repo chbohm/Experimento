@@ -79,8 +79,7 @@ export interface ILoginError{
 export interface ISignUpProps{
     email:string;
     password:string;
-    first_name:string;
-    last_name:string;
+    name:string;
     phone:string;
     address:string;
 }

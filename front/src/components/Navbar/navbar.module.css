@@ -5,10 +5,11 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 5em;
+    height: 4em;
     z-index: 1000;
     display: flex;
     align-items: center;
+
 }
 
 .navbar {

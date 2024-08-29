@@ -10,8 +10,7 @@ const SignUp = () => {
     const initialState = {
         email: "",
         password: "",
-        first_name: "",
-        last_name: "",
+       name:"",
         phone: "",
         address: ""
     };
@@ -34,6 +33,7 @@ const SignUp = () => {
         if (Object.keys(validationErrors).length === 0) {
             alert("submitted form");
             try {
+                console.log(formDta);
                 await register(formDta);
                 alert("succesfully registered");
                 router.push('/SignIn');
@@ -78,25 +78,15 @@ const SignUp = () => {
                     <div className="relative w-full mb-5">
                         <input
                             type="text"
-                            name="first_name"
-                            value={formDta.first_name}
+                            name="name"
+                            value={formDta.name}
                             onChange={handleInputChange}
                             placeholder="First Name"
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
                         />
                         {errors.first_name && <p className="text-red-600">{errors.first_name}</p>}
                     </div>
-                    <div className="relative w-full mb-5">
-                        <input
-                            type="text"
-                            name="last_name"
-                            value={formDta.last_name}
-                            onChange={handleInputChange}
-                            placeholder="Last Name"
-                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
-                        />
-                        {errors.last_name && <p className="text-red-600">{errors.last_name}</p>}
-                    </div>
+                    
                 </div>
                 <div className="relative w-full mb-5">
                     <input

@@ -54,8 +54,8 @@ const Login = () => {
     },[formDta])
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-900">
-            <form onSubmit={handleOnSubmit} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <div className="min-h-screen flex items-center justify-center bg-gray-900 mt-10">
+            <form onSubmit={handleOnSubmit} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
                 <div className="relative w-full mb-5">
                     <input
                         id="email"

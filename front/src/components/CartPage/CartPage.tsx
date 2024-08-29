@@ -14,8 +14,8 @@ const [totalCart, setTotalCart] = useState<number>(0);
 
 useEffect(() => {
     const userSessionLocal= localStorage.getItem("userSession")
-    setUserSession(JSON.parse(userSessionLocal!)) //el parse lo convierte en un objeto nuevamente
-    !userSession?.token && router.push('/login')
+    setUserSession(JSON.parse(userSessionLocal!)) 
+    
 }, [])
 
 useEffect(() => {
@@ -65,7 +65,7 @@ return(
         })
     ) : (
         <div>
-            <h1>Carrito vacío</h1>
+            <p className="text-3xl">Carrito vacío</p>
         </div>
     )
     }

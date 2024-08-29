@@ -30,13 +30,10 @@ export function validateSignUpForm(values: ISignUpProps): ISignUpError {
         errors.password = "Password must be at least 6 characters long";
     }
 
-    if (!values.first_name) {
-        errors.first_name = "First name is required";
+    if (!values.name) {
+        errors.first_name = "Name is required";
     }
 
-    if (!values.last_name) {
-        errors.last_name = "Last name is required";
-    }
 
     if (!values.phone) {
         errors.phone = "Phone number is required";

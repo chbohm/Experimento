@@ -88,7 +88,12 @@ const ProductDetail: React.FC<IProduct> = ({ id, name, image, description, price
             router.push('/login');
         } else {
             const cart: IProduct[] = JSON.parse(localStorage.getItem("cart") || "[]");
-            const productExists = cart.some((product) => product.id === id);
+            const productExists = cart.some((product: IProduct) => {
+                if (product.id === id) {
+                    return true;
+                }
+                return false;
+            });
 
             if (productExists) {
                 alert("Product is already in the cart.");
@@ -105,6 +110,7 @@ const ProductDetail: React.FC<IProduct> = ({ id, name, image, description, price
                 });
                 localStorage.setItem("cart", JSON.stringify(cart));
                 alert("Product added to cart.");
+                
             }
         }
     };
