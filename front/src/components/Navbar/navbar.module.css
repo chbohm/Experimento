@@ -1,16 +1,4 @@
-.navbarContainer {
-    background-color: #040404;
-    padding: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4em;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
 
-}
 
 .navbar {
     width: 100%;
@@ -24,6 +12,7 @@
     color: #f6efef;
     text-decoration: none;
     margin-left: 14px;
+    margin-right: 10px;
     transition: color 0.3s ease-in-out;
     align-items: center;
 }
@@ -32,41 +21,11 @@
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
+    margin-top: 10px;
 }
 
 .navbar_item:hover {
     color: #cf7b4e;
 }
 
-/* Mejora para dispositivos móviles */
-@media (max-width: 720px) {
-    .navbarItems {
-        display: none; /* Ocultar por defecto en pantallas pequeñas */
-        flex-direction: column; /* Cambia la dirección de los items a columna */
-        background-color: #040404; /* Fondo oscuro para el menú desplegable */
-        width: 100%;
-        padding: 10px;
-        position: absolute;
-        top: 5em; /* Coloca el menú justo debajo del navbar */
-        left: 0;
-        z-index: 999;
-    }
 
-    .navbar_item {
-        margin-left: 0; /* Elimina el margen izquierdo para centrar los items */
-        padding: 10px;
-    }
-    
-    .navbarContainer {
-        height: auto;
-    }
-
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .block.md\\:hidden {
-        display: block; /* Asegura que el botón de menú esté visible en pantallas pequeñas */
-    }
-}

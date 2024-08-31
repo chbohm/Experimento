@@ -37,7 +37,7 @@ useEffect(() => {
     if(userSession?.userData){
         userSession?.userData.name ===undefined && router.push('/login')
     }
-    // !userSession?.token && router.push('/login')
+    
 }, [userSession?.userData])
 
 
@@ -45,7 +45,7 @@ useEffect(() => {
 const handleClick=async ()=>{
     const idProducts=cart?.map((product)=>product.id);
     await createOrder(idProducts, userSession?.token!)
-    alert("orden creada")
+    alert("Your order has been created")
     setCart([])
     setTotalCart(0)
     localStorage.removeItem("cart")
@@ -65,7 +65,7 @@ return(
         })
     ) : (
         <div>
-            <p className="text-3xl">Carrito vacío</p>
+            <p className="text-3xl">You have no items in your cart</p>
         </div>
     )
     }

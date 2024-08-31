@@ -3,8 +3,7 @@ import { error } from "console";
 
 const APIURL = process.env.NEXT_PUBLIC_API_URL;
 
-//obtenemos todos los productos de la bd con el fetch al back
-//el revalidate es para que se refresque la bd y la actualice
+
 export async function getProductsDB(): Promise<IProduct[]> {
     try {
         const res = await fetch(`${APIURL}/products`, {
@@ -17,7 +16,6 @@ export async function getProductsDB(): Promise<IProduct[]> {
     }
 };
 
-//obtenemos un solo producto
 export async function getProductsById(id: string): Promise<IProduct> {
     try {
         const products: IProduct[] = await getProductsDB();

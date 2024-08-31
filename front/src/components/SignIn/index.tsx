@@ -1,4 +1,5 @@
 "use client"
+import { useAuth } from '@/context/AuthContext';
 import { login } from '@/helpers/auth.helpers';
 import { validateLoginForm } from '@/helpers/validate';
 import { ILoginError, ILoginProps } from '@/interfaces';
@@ -10,6 +11,7 @@ import { useState, useEffect } from "react";
 
 
 const Login = () => {
+    const {setUserData}=useAuth()
     const router=useRouter();
    
     const initialState={
@@ -32,16 +34,18 @@ const Login = () => {
         const response= await login(formDta)
         console.log(response)
         const {token,user}=response;
-       const clearUser={
+       const userData={
           id: user.id,
           name: user.name,
           email: user.email,
           address: user.address,
           phone: user.phone,
-          password: user.password,
-          token: token
+        //   password: user.password,
+        //   token: token
+        orders: user.orders
        }
-        localStorage.setItem("userSession", JSON.stringify({token,user:clearUser}));//guarda el usuario en el localStorage
+       setUserData({token, userData})
+        // localStorage.setItem("userSession", JSON.stringify({token,user:clearUser}));//guarda el usuario en el localStorage
         alert ("submitted form")
         router.push('/home')
         //una vez que el usuario se registre redirecciona a la ruta principal
@@ -54,9 +58,9 @@ const Login = () => {
     },[formDta])
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-900 mt-10">
+        <div className="min-h-screen flex items-center justify-center bg-gray-900 mt-20">
             <form onSubmit={handleOnSubmit} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
-                <div className="relative w-full mb-5">
+                <div className="relative w-full mb-10 mt-10">
                     <input
                         id="email"
                         type="email"

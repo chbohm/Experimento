@@ -29,17 +29,17 @@ import { IProductProps } from "@/interfaces";
 import Image from "next/image";
 import Link from "next/link";
 
+
 const ProductCard: React.FC<IProductProps> = ({ product }) => {
   return (
     <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
         <Link href={`/detail/${product.id}`} passHref>
-        <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 overflow-hidden transition-transform duration-300 transform hover:scale-105 rounded-lg md:rounded-l-lg">
-    <img
+        <div className="relative w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 overflow-hidden transition-transform duration-300 transform hover:scale-105 rounded-lg md:rounded-l-lg" >
+    <img 
         src={product.image}
         alt={product.name}
         sizes="(min-width: 640px) 50vw, 100vw"
-        className="object-cover"
-      
+        className="w-full h-auto object-cover max-w-[180px] max-h-[260px]"
     />
 </div>
 

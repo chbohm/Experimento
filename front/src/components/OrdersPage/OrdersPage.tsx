@@ -5,37 +5,28 @@ import { IOrder, IProduct, userSession } from "@/interfaces";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ProductList from "../ProductList";
+import { useAuth } from "@/context/AuthContext";
 
 const OrdersPage=()=>{
+    const {userData}=useAuth();
     const router=useRouter();
-const [userSession, setUserSession] = useState<userSession>();
 const [orders, setOrders] = useState<IOrder[]>([]);
 
 
 
-useEffect(() => {
-    const userSessionLocal= localStorage.getItem("userSession")
-    setUserSession(JSON.parse(userSessionLocal!)) //el parse lo convierte en un objeto nuevamente
-    // !userSession?.token && router.push('/login')
-}, [])
-
-useEffect(() => {
-   fetchData()
-
-}, [])
 const fetchData=async()=>{
-    const ordersResponse=await getOrders( userSession?.token!);
+    const ordersResponse=await getOrders( userData?.token!);
     setOrders(ordersResponse)
 }
 
 
 
 useEffect(() => {
-    if(userSession?.userData){
-        userSession?.userData.name ===undefined ? router.push('/login'): fetchData()
+    if(userData?.userData){
+        userData?.userData.name ===undefined ? router.push('/login'): fetchData()
     }
     
-}, [userSession?.userData])
+}, [userData?.userData])
 
 
 
@@ -57,7 +48,7 @@ return(
         })
     ) : (
         <div>
-            <h1>Carrito vacío</h1>
+            <h1>You don't have any orders</h1>
             
         </div>
     )
