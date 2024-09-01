@@ -1,4 +1,6 @@
 "use client";
+import ProductCard from "@/components/ProductCard";
+import { IProduct } from "@/interfaces";
 import { useRouter } from "next/navigation";
 
 
@@ -12,7 +14,11 @@ const handleClick=()=>{
 }
   return (
     <div>
-      <h1>Welcome to TecnoHouse</h1>
+      <h1>Welcome to MEGA</h1>
+      <h2>Where you can buy your favorite products</h2>
+
+<p></p>
+      
       <button onClick={handleClick}>Login</button>
 
 
@@ -21,3 +27,4 @@ const handleClick=()=>{
     </div>
   );
 }
+

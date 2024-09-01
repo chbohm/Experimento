@@ -56,6 +56,8 @@ const ProductDetail: React.FC<IProduct> = ({ id, name, image, description, price
                 className="w-32 h-auto md:w-48 md:h-auto object-cover rounded-lg "
                 src={image}
                 alt={`Product image of ${name}`}
+                width={300}
+                height={300}
             />
             <p className="text-base md:text-lg text-gray-700 mb-2">{description}</p>
             <p className="text-lg md:text-xl font-bold mb-2">Price: ${price.toFixed(2)}</p>

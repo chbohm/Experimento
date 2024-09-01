@@ -42,6 +42,8 @@ const SignUp = () => {
                 alert("Error registering user, please try again");
             }
         }
+
+        
     };
 
     useEffect(() => {

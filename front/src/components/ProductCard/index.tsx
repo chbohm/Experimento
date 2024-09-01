@@ -38,7 +38,9 @@ const ProductCard: React.FC<IProductProps> = ({ product }) => {
     <img 
         src={product.image}
         alt={product.name}
-        sizes="(min-width: 640px) 50vw, 100vw"
+      width={280}
+      height={280}
+      
         className="w-full h-auto object-cover max-w-[180px] max-h-[260px]"
     />
 </div>
