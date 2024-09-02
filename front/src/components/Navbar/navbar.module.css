@@ -11,8 +11,8 @@
 .navbar_item {
     color: #f6efef;
     text-decoration: none;
-    margin-left: 14px;
-    margin-right: 10px;
+    margin-left: 24px;
+    margin-right: 20px;
     transition: color 0.3s ease-in-out;
     align-items: center;
 }

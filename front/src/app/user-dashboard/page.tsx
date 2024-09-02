@@ -102,7 +102,7 @@ const UserDashboard = () => {
     return (
         <div className="p-8 bg-gray-100 min-h-screen">
             <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
-                <h1 className="text-2xl font-bold mb-6">User Dashboard</h1>
+                <h1 className="text-2xl font-bold mb-6">About me</h1>
 
                 <section className="mb-8">
                     <h2 className="text-xl font-semibold mb-4">Profile</h2>

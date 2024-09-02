@@ -124,7 +124,7 @@ const Navbar = () => {
                     />
                 </div>
 
-                <div className="hidden md:flex items-center gap-4">
+                <div className="hidden md:flex items-center gap-4 ">
                     <Link href="/home" className={styles.navbar_item}>Home</Link>
                     <Link href="/user-dashboard" className={styles.navbar_item}>User Dashboard</Link>
                     <Link href="/orders" className={styles.navbar_item}>Orders</Link>
@@ -137,7 +137,7 @@ const Navbar = () => {
                             <Link href="/login" className={styles.navbar_item}>SignIn</Link>
                         ) : (
                             <Link href="/user-dashboard" className={styles.navbar_item}>
-                                Profile: {userData?.userData?.name}
+                                <img src="/imagenes/user.png" alt="User" className="w-8 h-8" />{userData?.userData?.name}
                             </Link>
                         )
                     }
