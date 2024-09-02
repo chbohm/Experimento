@@ -126,9 +126,12 @@ const Navbar = () => {
 
                 <div className="hidden md:flex items-center gap-4">
                     <Link href="/home" className={styles.navbar_item}>Home</Link>
-                    <Link href="/cart" className={styles.navbar_item}>Cart</Link>
                     <Link href="/user-dashboard" className={styles.navbar_item}>User Dashboard</Link>
                     <Link href="/orders" className={styles.navbar_item}>Orders</Link>
+                   
+                    <Link href="/cart" className={styles.navbar_item}>
+                        <img src="/imagenes/cart.png" alt="Cart" className="w-6 h-6" />
+                    </Link>
                     {
                         !userData?.token ? (
                             <Link href="/login" className={styles.navbar_item}>SignIn</Link>
