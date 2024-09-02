@@ -126,7 +126,7 @@ const Navbar = () => {
 
                 <div className="hidden md:flex items-center gap-4">
                     <Link href="/home" className={styles.navbar_item}>Home</Link>
-                    <Link href="/checkout" className={styles.navbar_item}>Checkout</Link>
+                    <Link href="/cart" className={styles.navbar_item}>Cart</Link>
                     <Link href="/user-dashboard" className={styles.navbar_item}>User Dashboard</Link>
                     <Link href="/orders" className={styles.navbar_item}>Orders</Link>
                     {

@@ -32,7 +32,10 @@ export function validateSignUpForm(values: ISignUpProps): ISignUpError {
 
     if (!values.name) {
         errors.first_name = "Name is required";
+    } else if (/\d/.test(values.name)) {
+        errors.first_name = "Name cannot contain numbers";
     }
+
 
 
     if (!values.phone) {
@@ -44,6 +47,7 @@ export function validateSignUpForm(values: ISignUpProps): ISignUpError {
     if (!values.address) {
         errors.address = "Address is required";
     }
+       
 
     return errors;
 }
