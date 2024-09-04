@@ -95,21 +95,10 @@ import styles from './navbar.module.css';
 
 const Navbar = () => {
     const { userData } = useAuth();
-    const [open, setOpen] = useState(false);
-    const [windowSize, setWindowSize] = useState([1200, 800]);
+   
 
 
-    const windowsizeHandler = () => {
-        setWindowSize([window.innerWidth, window.innerHeight]);
-    };
-
-    useEffect(() => {
-        window.addEventListener("resize", windowsizeHandler);
-        return () => {
-            window.removeEventListener("resize", windowsizeHandler);
-        };
-    }, []);
-
+    
     return (
         <div className="bg-[#040404] p-0 fixed top-0 left-0 w-full h-12 z-[1000] flex items-center">
             <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
