@@ -4,20 +4,17 @@
 import React, { useEffect, useState } from 'react';
 import { IProduct, userSession } from "@/interfaces";
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 const ProductDetail: React.FC<IProduct> = ({ id, name, image, description, price, stock, categoryId }) => {
     const router = useRouter();
-    const [userSession, setUserSession] = useState<userSession | undefined>(undefined);
+    const {userData}=useAuth();
+    
 
-    useEffect(() => {
-        const userSessionLocal = localStorage.getItem("userSession");
-        if (userSessionLocal) {
-            setUserSession(JSON.parse(userSessionLocal));
-        }
-    }, []);
+    
 
     const handleClick = () => {
-        if (!userSession?.token) {
+        if (!userData?.token) {
             alert("You need to be logged in to add items to the cart.");
             router.push('/login');
         } else {
