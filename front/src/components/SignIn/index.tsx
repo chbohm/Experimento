@@ -45,10 +45,10 @@ const Login = () => {
         orders: user.orders
        }
        setUserData({token, userData})
-        // localStorage.setItem("userSession", JSON.stringify({token,user:clearUser}));//guarda el usuario en el localStorage
+
         alert ("submitted form")
         router.push('/home')
-        //una vez que el usuario se registre redirecciona a la ruta principal
+       
     };
      
     useEffect(()=>{
@@ -57,6 +57,7 @@ const Login = () => {
 
     },[formDta])
 
+    
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-900 mt-20">
             <form onSubmit={handleOnSubmit} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">

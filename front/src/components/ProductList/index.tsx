@@ -9,6 +9,7 @@ const ProductList: React.FC<IProductListProps> = ({ products }) => {
   
   return (
     <div className="flex flex-wrap justify-center gap-6 p-6">
+      
       {products &&
       products?.map((product: IProduct) => (
         

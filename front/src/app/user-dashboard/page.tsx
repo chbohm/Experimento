@@ -78,6 +78,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getOrders } from '@/helpers/orders.helpers'; 
 import { IOrder, IProduct } from '@/interfaces';
+import Link from 'next/link';
 
 const UserDashboard = () => {
     const { userData } = useAuth();
@@ -143,6 +144,12 @@ const UserDashboard = () => {
                     ) : (
                         <p>No orders found.</p>
                     )}
+                    {
+                        userData?.token ?(
+                            <Link href="/Logout" className="text-blue-500 hover:text-blue-700">Logout</Link>
+                        ):null
+                    }
+
                 </section>
             </div>
         </div>

@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 
 async function Home() {
+    
     const products= await getProductsDB();
     return (
         <div>

@@ -98,6 +98,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [windowSize, setWindowSize] = useState([1200, 800]);
 
+
     const windowsizeHandler = () => {
         setWindowSize([window.innerWidth, window.innerHeight]);
     };
@@ -134,14 +135,20 @@ const Navbar = () => {
                     </Link>
                     {
                         !userData?.token ? (
-                            <Link href="/login" className={styles.navbar_item}>SignIn</Link>
+                            <Link href="/auth-page" className={styles.navbar_item}>SignIn</Link>
                         ) : (
                             <Link href="/user-dashboard" className={styles.navbar_item}>
                                 <img src="/imagenes/user.png" alt="User" className="w-8 h-8" />{userData?.userData?.name}
                             </Link>
                         )
                     }
+                    
+
+
+
                 </div>
+            
+                
 
                 
             </div>
