@@ -29,7 +29,7 @@ export interface User{
     address:string;
     phone:string;
     password:string;
-    orders?:number[]
+    
 }
 
 
@@ -43,28 +43,7 @@ export interface ILoginUserResponse {
 
 export interface ICreateOrder {
     userId: number;
-    products: number[];
-}
-
-
-
-export interface IProduct{
-    id:number;
-    name:string;
-    price:number;
-    description:string;
-    image:string;
-    categoryId:number;
-    stock:number;
-}  
-
-
-export interface IProductListProps{
-    products:IProduct[];
-}
-
-export interface IProductProps{
-    product:IProduct
+   
 }
 
 export interface ILoginProps{
@@ -102,14 +81,8 @@ export interface userSession{
         email:string;
         address:string;
         phone:string;
-        orders:[]
+        
     }
 
 }
 
-export interface IOrder{
-    id:number;
-    date:string;
-    status:string;
-    products:IProduct[]
-}

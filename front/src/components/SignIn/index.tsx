@@ -57,48 +57,51 @@ const Login = () => {
 
     },[formDta])
 
-    
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-900 mt-20">
-            <form onSubmit={handleOnSubmit} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
-                <div className="relative w-full mb-10 mt-10">
-                    <input
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={formDta.email}
-                        onChange={handleInputChange}
-                        placeholder="example@gmail.com"
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    />
-                    {errors.email && <p className="text-red-600">{errors.email}</p>}
-                </div>
-                <div className="relative w-full mb-5">
-                    <input
-                    id="password"
-                        type="password"
-                        name="password"
-                        value={formDta.password}
-                        onChange={handleInputChange}
-                        placeholder="********"
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    />
-                    {errors.password && <p className="text-red-600">{errors.password}</p>}
-                </div>
-                <div className="flex items-center justify-center">
-                    <button 
-                        type="submit" 
-                        className={`px-6 py-2 font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 ${
-                            errors.email || errors.password ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 text-white hover:bg-blue-700"
-                        }`}
-                        disabled={!!errors.email || !!errors.password}
-                    >
-                        Login
-                    </button>
-                </div>
-            </form>
+        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+                <h2 className="text-2xl font-serif text-red-600 mb-6 text-center">Login</h2>
+                <form onSubmit={handleOnSubmit}>
+                    <div className="mb-4">
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            value={formDta.email}
+                            onChange={handleInputChange}
+                            placeholder="example@gmail.com"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
+                        {errors.email && <p className="text-red-600 mt-1">{errors.email}</p>}
+                    </div>
+                    <div className="mb-6">
+                        <input
+                            id="password"
+                            type="password"
+                            name="password"
+                            value={formDta.password}
+                            onChange={handleInputChange}
+                            placeholder="********"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
+                        {errors.password && <p className="text-red-600 mt-1">{errors.password}</p>}
+                    </div>
+                    <div className="flex items-center justify-center">
+                        <button
+                            type="submit"
+                            className={`px-6 py-2 font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 ${
+                                errors.email || errors.password ? "bg-gray-400 cursor-not-allowed" : "bg-red-600 text-white hover:bg-red-700"
+                            }`}
+                            disabled={!!errors.email || !!errors.password}
+                        >
+                            Login
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
+    
 };
 
 export default Login;

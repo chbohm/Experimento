@@ -35,12 +35,15 @@ export const loginUserService = async (
     where: {
       email: loginUserDto.email,
     },
-    relations: ["credential", "orders"],
+
+    relations: ["credential"],
+    
   });
   if (!user) throw new Error("User not found");
   if (
     await checkPasswordService(loginUserDto.password, user.credential.password)
   ) {
+    //genera token JWT al hacer login
     const token = jwt.sign({ userId: user.id }, JWT_SECRET);
 
     return {

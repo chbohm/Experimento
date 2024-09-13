@@ -22,6 +22,7 @@ export const registerUser = catchedController(
 export const login = catchedController(async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const user = await loginUserService({ email, password });
+  //envia el token en la respuesta si es exitoso
   res.status(200).send({
     login: true,
     user: user.user,
