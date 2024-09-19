@@ -1,6 +1,6 @@
 // Encrypt.ts
 import crypto from 'crypto';
-
+import fs from 'fs';
 export class Encrypt {
   public key: Buffer;
   public iv: Buffer;
@@ -31,9 +31,13 @@ export class Encrypt {
   }
 
   static readFromFile(filePath: string): any {
-    const fs = require('fs');
-    const data = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(data);
+    try {
+      const data = fs.readFileSync(filePath, 'utf8');
+      return JSON.parse(data); // Asegúrate de que el archivo tenga el formato correcto
+    } catch (error) {
+      console.error('Error reading from file:', error);
+      throw new Error('Failed to read encrypted file');
+    }
   }
 }
 

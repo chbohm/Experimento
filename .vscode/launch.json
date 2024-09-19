@@ -1,0 +1,13 @@
+
+{
+    "configurations": [
+
+        { "command": "node --inspect=9229 -r ts-node/register ${relativeFile}",      
+             "name": "Debug current file",         
+               "request": "launch",         
+                  "trace": true,         
+                   "type": "node-terminal",  
+                             
+         }
+    ]
+}
