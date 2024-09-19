@@ -47,7 +47,7 @@ export async function login({ email, password }: ILoginProps) {
 
     // Almacenar el token en localStorage si es exitoso
     if (data.token) {
-      localStorage.setItem('token', data.token);
+      localStorage.setItem('jwtToken', data.token);
     }
 
     return data;
@@ -60,7 +60,8 @@ export async function login({ email, password }: ILoginProps) {
 // Rutas protegidas
 export async function fetchProtectedRoute() {
   try {
-    const token = localStorage.getItem('token');
+    //obtengo el token del local storage
+    const token = localStorage.getItem('jwtToken');
 
     if (!token) {
       throw new Error("No token found, please login.");
@@ -69,7 +70,7 @@ export async function fetchProtectedRoute() {
     const res = await fetch(`${APIURL}/protected-route`, {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${token}`,// incluye en el header el token
       },
     });
 
